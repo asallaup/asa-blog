@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tittel</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  	<form method="post" action="/posts" id="new_post" class="new_post">
+      <div class="field">
+        <label for="post_title">Title</label><br />
+        <input type="text" name="title" id="post_title" size="30" />
+      </div>
+      <div class="field">
+        <label for="post_content">Content</label><br />
+        <textarea name="content" cols="40" rows="10" id="post_content">
+        </textarea>
+      </div>
+      <div class="actions">
+        <input type="submit" value="Create Post" id="post_submit" />
+      </div>
+    </form>
+  
+<% for(var i=0; i<p.length; i++) {%>
+   <h1><%= p[i].title %></h1>
+    <p><%= p[i].date %></p> 
+    <p><%= p[i].content %></p>
+<% } %>
+   </body>
+</html>
