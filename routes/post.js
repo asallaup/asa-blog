@@ -1,7 +1,7 @@
 
 // Database 
 
-var databaseUrl = "blog" 
+var databaseUrl = "mongodb://heroku_app14860535:5m6sakelue5j3i4c2p7dq2ui4d@ds031567.mongolab.com:31567/heroku_app14860535" 
   , collections = ["posts"]
   , db = require('mongojs').connect(databaseUrl, collections);
 
