@@ -6,9 +6,6 @@ var databaseUrl = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'blog'
   , collections = ["posts"]
   , db = require('mongojs').connect(databaseUrl, collections);
 
-// var mongo = require('mongodb');
-
-
 
 /*
  * Get new blog post form.
