@@ -1,7 +1,7 @@
 
 // Database 
 
-var databaseUrl = process.env || "blog" 
+var databaseUrl = "blog" 
   , collections = ["posts"]
   , db = require('mongojs').connect(databaseUrl, collections);
 
