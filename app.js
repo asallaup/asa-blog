@@ -10,6 +10,10 @@ var express = require('express')
   , path = require('path')
   , post = require('./routes/post');
 
+
+var SendGrid = require('sendgrid').SendGrid;
+
+
 var app = express();
 
 
@@ -40,4 +44,7 @@ app.post('^/posts/?$', post.newentry);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
+  console.log(process.env.SENDGRID_USERNAME);
+  console.log(process.env.SENDGRID_PASSWORD);
+
 });
