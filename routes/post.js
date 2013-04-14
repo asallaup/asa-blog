@@ -1,4 +1,6 @@
 
+var SendGrid = require('sendgrid').SendGrid;
+
 // Database 
 
 // var databaseUrl = "mongodb://heroku_app14860535:5m6sakelue5j3i4c2p7dq2ui4d@ds031567.mongolab.com:31567/heroku_app14860535" 
@@ -28,5 +30,15 @@ exports.list = function(req, res){
 exports.newentry = function(req, res){
 	req.body.date = new Date();
 	db.posts.insert(req.body);
+	var sendgrid = new SendGrid(
+	  process.env.SENDGRID_USERNAME,
+	)
+	
+	sendgrid.send({
+  		to: 'arvid.sallaup@gmail.com',
+  		from: 'arvid@sallaup.com',
+  		subject: 'Hello World',
+  		text: 'Sending email with NodeJS through SendGrid!'
+	});
 	showPosts(req, res);
 };
