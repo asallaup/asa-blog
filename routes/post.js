@@ -32,8 +32,8 @@ exports.newentry = function(req, res){
 	db.posts.insert(req.body);
 	var sendgrid = new SendGrid(
 	  process.env.SENDGRID_USERNAME,
-	)
-	
+	  process.env.SENDGRID_PASSWORD
+	 )
 	sendgrid.send({
   		to: 'arvid.sallaup@gmail.com',
   		from: 'arvid@sallaup.com',
