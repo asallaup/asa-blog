@@ -7,6 +7,7 @@ var databaseUrl = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'blog2'
   , db = require('mongojs').connect(databaseUrl, collections);
 
 
+
 /*
  * Get new blog post form.
  */
@@ -26,3 +27,23 @@ exports.newentry = function(req, res){
 	db.posts.insert(req.body);
 	showPosts(req, res);
 };
+
+exports.difi = function(req, res1){
+	require('http').request({
+		host: 'hotell.difi.no'
+	  ,	port: 80
+	  , path: '/api/json/bergen/dokart?'
+	  , method: 'GET'
+	}, function (res) {
+		var body = '';
+		res.setEncoding('utf8');
+		res.on('data', function (chunk) {
+			console.log(chunk);
+			body += chunk;			
+		});
+		res.on('end', function () {
+			res1.send(body);
+		});
+	}).end();
+};
+
