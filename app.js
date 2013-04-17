@@ -39,7 +39,7 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('^/posts/?$', post.list);
 app.post('^/posts/?$', post.newentry);
-app.get('^/difi/?$', post.difi);
+app.get('^/dokart/?$', post.difi);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

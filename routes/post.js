@@ -28,7 +28,7 @@ exports.newentry = function(req, res){
 	showPosts(req, res);
 };
 
-exports.difi = function(req, res1){
+exports.dokart = function(req, res1){
 	require('http').request({
 		host: 'hotell.difi.no'
 	  ,	port: 80
